@@ -1,1 +1,1 @@
-# Trombinoscope-Anim-Manga
+# Trombinoscope-Anime-Manga

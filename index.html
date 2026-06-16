@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <!-- Rend la page responsive : la largeur s'adapte à l'écran (mobile, tablette, PC) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trombinoscope — BTS CIEL 1er année</title>
+  <!-- Description utilisée par les moteurs de recherche / aperçus de liens -->
+  <meta name="description" content="Mini-projet Git/GitHub : Trombinoscope de la classe. Chaque élève complète ses infos dans le JavaScript." />
+  <!-- Feuille de style : toutes les couleurs, tailles, mises en page -->
+  <link rel="stylesheet" href="style.css">
+  <!-- "defer" = le script ne s'exécute qu'une fois tout le HTML chargé,
+       ce qui évite de chercher des éléments (ex: #list) qui n'existent pas encore -->
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <!-- Conteneur principal : centre le contenu et limite sa largeur (voir .container en CSS) -->
+  <div class="container">
+
+    <!-- En-tête de la page : titre + barre de recherche + bouton thème -->
+    <header class="hero">
+
+      <!-- Titre de la page avec un petit badge "Mini-projet" devant -->
+      <div class="title"><span class="badge">Mini-projet</span> Trombinoscope — BTS CIEL 1er année</div>
+
+      <!-- Carte/panneau contenant la barre de recherche -->
+      <div class="panel">
+        <div class="controls">
+
+          <!-- Champ de recherche : filtre les fiches en direct (voir script.js -> filter()) -->
+          <label class="search" aria-label="Rechercher par nom, techno ou rôle">
+            <!-- Icône loupe en SVG (image vectorielle dessinée directement en HTML) -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21 21l-4.2-4.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="10" cy="10" r="6" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <!-- type="search" : type d'input dédié à la recherche.
+                 L'id="q" est utilisé par script.js pour récupérer ce qui est tapé. -->
+            <input id="q" type="search" placeholder="Rechercher un(e) camarade ou une techno…" autocomplete="off" />
+          </label>
+
+          <!-- Petit texte d'astuce affiché à droite de la recherche -->
+          <div class="hint">Astuce : appuie sur <span class="kbd">/</span> pour chercher</div>
+        </div>
+      </div>
+
+      <!-- Bouton rond en haut à droite pour basculer entre thème clair/sombre (logique dans script.js) -->
+      <button id="themeToggle" aria-label="Changer de thème">🌙</button>
+
+    </header>
+
+    <!-- Zone où le JavaScript va injecter dynamiquement une "card" (fiche) par élève.
+         Elle est vide au départ : tout est généré par script.js (fonction render()).
+         aria-live="polite" annonce aux lecteurs d'écran que le contenu change (utile pendant la recherche). -->
+    <main id="list" class="grid" aria-live="polite"></main>
+
+    <!-- Message affiché uniquement si la recherche ne donne aucun résultat.
+         "hidden" le cache par défaut ; script.js retire/ajoute cet attribut selon le nombre de résultats. -->
+    <p id="empty" class="empty" hidden>Aucune personne ne correspond à cette recherche.</p>
+
+    <!-- Pied de page : rappel de la consigne du mini-projet -->
+    <footer>
+      <p>
+        Chaque élève édite le <span class="kbd">JavaScript</span> (tableau <span class="kbd">students</span>) pour ajouter sa fiche : nom, photo, email, GitHub, sa page web, une bio et 3 technos.
+      </p>
+    </footer>
+  </div>
+</body>
+
+
+</html>
