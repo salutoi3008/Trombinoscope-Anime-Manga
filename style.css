@@ -1,0 +1,423 @@
+/* =========================================================
+   VARIABLES DE THÈME (CSS custom properties)
+   On définit ici des "variables" réutilisées partout dans le
+   fichier (--bg, --text, etc.). Changer une valeur ici change
+   automatiquement toute la page.
+
+   Le sélecteur :root[data-theme="dark"] s'applique quand
+   <html data-theme="dark"> est défini par script.js.
+   :root:not([data-theme]) = thème sombre PAR DÉFAUT si aucun
+   thème n'a encore été choisi par l'utilisateur.
+   ========================================================= */
+:root[data-theme="dark"], 
+:root:not([data-theme]){
+  --bg:#303030;         /* couleur de fond générale */
+  --text:#e7edf6;       /* couleur du texte principal */
+  --muted:#9aa6b2;      /* texte secondaire (rôle, bio, hint...) */
+  --brand:#5dd3ff;      /* couleur principale (dégradés, badge) */
+  --accent:#7cf3c6;     /* couleur secondaire (dégradés) */
+  --panel:#121725;      /* fond des cartes / panneaux */
+  --panel-2:#1a2031;    /* fond légèrement différent (tags) */
+  --line:#2a334a;       /* couleur des bordures fines */
+  --radius:16px;        /* rayon d'arrondi réutilisable (non utilisé partout) */
+  --shadow:0 12px 30px rgba(0,0,0,.25); /* ombre portée des cartes/boutons */
+  --ring: rgba(128,255,234,.35);        /* halo au survol/focus */
+}
+
+
+
+/* Variante "thème clair" : mêmes variables, valeurs différentes.
+   S'applique quand <html data-theme="light"> (après clic sur le bouton lune/soleil) */
+:root[data-theme="light"]{
+  --bg:#f6f7fb; 
+  --text:#0f172a; 
+  --muted:#5b6676;
+  --brand:#2563eb; 
+  --accent:#22c55e;
+  --panel:#ffffff; 
+  --panel-2:#f3f5f9; 
+  --line:#e5e7eb;
+  --shadow:0 12px 24px rgba(0,0,0,.08);
+  --ring: rgba(37,99,235,.18);
+}
+
+
+
+/* Bouton de bascule thème (icône 🌙/☀️ en haut à droite) */
+#themeToggle{
+  position: absolute;   /* sorti du flux normal, positionné par rapport au header */
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;   /* = cercle parfait */
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  display: grid; 
+  place-items: center;  /* centre l'emoji horizontalement et verticalement */
+  transition: transform .2s ease; /* anime le scale au survol */
+  z-index: 10000;        /* reste au-dessus du reste du contenu */
+}
+
+
+
+#themeToggle:hover{ 
+  transform: scale(1.1);  /* léger zoom au survol de la souris */
+}
+
+
+
+/* Reset de base : tous les éléments incluent leur bordure/padding
+   dans leur largeur déclarée (plus simple à calculer en CSS) */
+* { box-sizing: border-box; }
+html, body { 
+  height: 100%; 
+}
+
+
+
+body {
+  margin: 0;
+  font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+  color: var(--text);
+  /* 3 fonds superposés : deux dégradés radiaux "lumineux" (effet déco)
+     + la couleur de fond unie var(--bg) en dessous */
+  background:
+    radial-gradient(1200px 800px at 80% -10%, rgba(76,201,240,.12), transparent 60%),
+    radial-gradient(900px 700px at -10% 20%, rgba(128,255,234,.12), transparent 60%),
+    var(--bg);
+}
+
+
+
+/* Conteneur central : limite la largeur du contenu et le centre sur la page */
+.container { 
+  max-width: 1100px; 
+  margin: 0 auto; 
+  padding: 24px; 
+}
+
+
+
+/* En-tête (titre + panneau de recherche + bouton thème) */
+header.hero { 
+  display: grid; 
+  gap: 10px; 
+  align-items: center; 
+  margin: 8px 0 20px; 
+}
+
+
+
+/* Titre principal de la page */
+.title {
+  display: flex; 
+  align-items: center; 
+  gap: 12px;
+  font-weight: 800; 
+  letter-spacing: .3px; 
+  font-size: clamp(22px, 3vw, 32px); /* taille fluide entre 22px et 32px selon l'écran */
+}
+
+
+
+/* Petit badge "Mini-projet" avant le titre */
+.badge {
+  font-size: 12px; 
+  background: linear-gradient(90deg, var(--brand), var(--accent)); /* dégradé de couleur */
+  color: #081018; 
+  padding: 4px 10px; 
+  border-radius: 999px; /* arrondi maximal = forme de pilule */
+  font-weight: 700; 
+  box-shadow: var(--shadow);
+}
+
+
+
+/* Panneau contenant la barre de recherche (effet "verre dépoli") */
+.panel {
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0));
+  border: 1px solid rgba(255,255,255,.06);
+  backdrop-filter: blur(6px); /* floute ce qu'il y a derrière le panneau */
+  border-radius: 16px; 
+  padding: 14px; 
+  box-shadow: var(--shadow);
+}
+
+
+
+/* Disposition interne du panneau : champ de recherche à gauche, hint à droite */
+.controls { 
+  display: grid; 
+  grid-template-columns: 1fr auto; /* la recherche prend tout l'espace dispo, le hint juste ce qu'il faut */
+  gap: 10px; 
+  align-items: center; 
+}
+
+
+
+/* Le champ de recherche lui-même (icône + input) */
+.search {
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+  background: var(--panel);
+  border-radius: 12px; 
+  padding: 10px 12px; 
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+
+
+.search input {
+  outline: none;        /* enlève le contour bleu par défaut au clic */
+  border: none; 
+  background: transparent; 
+  color: var(--text); 
+  width: 100%; 
+  font-size: 15px;
+}
+
+
+
+/* Texte d'astuce "appuie sur / pour chercher" */
+.hint { 
+  color: var(--muted); 
+  font-size: 13px; 
+  text-align: right; 
+}
+
+
+
+/* ===== Grille des fiches élèves : colonnes responsives, même hauteur ===== */
+.grid {
+  display: grid;
+  /* autant de colonnes que possible, chacune entre 240px et 1 fraction de l'espace.
+     C'est ce qui permet à la grille de s'adapter automatiquement à la largeur de l'écran. */
+  grid-template-columns: repeat( auto-fill, minmax(240px, 1fr) );
+  gap: 14px;
+  margin-top: 16px;
+  align-items: stretch;   /* étire les cartes pour qu'elles aient toutes la même hauteur sur une ligne */
+  grid-auto-rows: 1fr;
+}
+
+
+
+
+/* ===== Carte (fiche) d'un élève : colonne flex + bouton collés en bas ===== */
+.card {
+  position: relative; 
+  overflow: hidden; 
+  border-radius: 16px; 
+  background: var(--panel);
+  border: 1px solid rgba(255,255,255,.06); 
+  box-shadow: var(--shadow);
+  transition: transform .15s ease, border-color .2s ease; /* anime le hover */
+  display: flex;
+  flex-direction: column;  /* empile head / tags / bio / footer verticalement */
+  height: 100%;             /* remplit toute la hauteur de sa cellule de grille */
+}
+
+
+
+
+.card:hover { 
+  transform: translateY(-2px);  /* la carte "monte" légèrement au survol */
+  border-color: var(--ring); 
+}
+
+
+
+
+/* En-tête de la carte : avatar + nom + rôle */
+.card-head {
+  display: flex; 
+  gap: 12px; 
+  align-items: center; 
+  padding: 14px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  background: linear-gradient(180deg, rgba(255,255,255,.03), transparent);
+}
+
+
+
+
+/* Avatar rond (photo si dispo, sinon initiales générées par JS) */
+.avatar {
+  --size: 64px; 
+  flex: 0 0 var(--size);   /* taille fixe, ne grandit/rétrécit jamais */
+  width: var(--size); 
+  height: var(--size);
+  display: grid; 
+  place-items: center; 
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand), var(--accent)); /* couleur de secours si pas de photo */
+  color: #001018;
+  font-weight: 900; 
+  letter-spacing: .5px; 
+  font-size: 22px; 
+  border: 2px solid rgba(255,255,255,.35);
+  overflow: hidden;   /* coupe l'image en cercle au lieu d'un carré */
+}
+
+
+
+
+.avatar img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover;   /* la photo remplit le cercle sans être déformée */
+  display: block; 
+}
+
+
+
+
+.card h3 { 
+  margin: 0; 
+  font-size: 18px; 
+}
+
+
+
+/* ---------- RÔLE : limité à 4 lignes max, hauteur minimale réservée ---------- */
+.role {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+  display: -webkit-box;          /* nécessaire pour line-clamp */
+  -webkit-line-clamp: 4;         /* coupe le texte après 4 lignes (+ "...") */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: calc(1em * 1.4 * 2); /* réserve au moins 2 lignes de hauteur, même si le texte est court */
+}
+
+
+
+/* ---------- TAGS (technos) : zone limitée à 4 rangées visibles ---------- */
+.tags {
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 6px; 
+  padding: 12px 14px;
+  --row-h: 26px;
+  max-height: calc(var(--row-h) * 4 + 6px);  /* coupe l'affichage au-delà de 4 rangées */
+  overflow: hidden;
+}
+
+
+
+/* Une pastille de techno (ex: "JavaScript") */
+.tag {
+  font-size: 12px; 
+  line-height: 1;
+  padding: 4px 8px; 
+  border-radius: 999px;
+  background: var(--panel-2); 
+  border: 1px solid rgba(255,255,255,.06);
+  color: var(--muted);
+}
+
+
+
+
+/* ---------- BIO : occupe l'espace restant, limitée à 4 lignes ---------- */
+.bio {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 8px 14px;
+  line-height: 1.4;
+  flex-grow: 1;   /* pousse le footer vers le bas même si la bio est courte */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+
+/* Pied de carte : toujours collé en bas grâce à margin-top: auto */
+.card-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px 14px;
+}
+
+
+
+/* Une rangée de boutons (ex: Email + GitHub, puis Web + Clicker) */
+.btn-row { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 8px; 
+}
+
+
+
+.btn-row.space-between { 
+  justify-content: space-between;  /* étale les boutons aux extrémités de la rangée */
+}
+
+
+.btn-row.center { 
+  justify-content: center;  /* (classe définie mais non utilisée actuellement dans le HTML/JS) */
+}
+
+
+/* Style commun à tous les boutons (Email, GitHub, Web, Clicker) */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  border-radius: 10px;
+  text-decoration: none;     /* enlève le souligné des liens <a> */
+  border: 1px solid rgba(255,255,255,.08);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.01));
+  color: var(--text);
+  flex-shrink: 0;             /* le bouton ne se compresse pas si la place manque */
+  white-space: nowrap;        /* le texte du bouton ne passe jamais à la ligne */
+}
+
+
+
+.btn:hover { 
+  outline: 2px solid var(--ring);  /* halo coloré au survol */
+}
+
+
+
+/* Message "Aucune personne ne correspond à cette recherche." */
+.empty { 
+  text-align: center; 
+  color: var(--muted); 
+  padding: 22px; 
+}
+
+
+
+/* Pied de page global de la page */
+footer { 
+  margin: 28px 0 10px; 
+  color: var(--muted); 
+  font-size: 12px; 
+  text-align: center; 
+}
+
+
+
+/* Style "touche de clavier" utilisé pour afficher / et JavaScript dans le texte */
+.kbd { 
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; 
+  background: var(--panel-2); 
+  border: 1px solid rgba(255,255,255,.08); 
+  padding: 2px 6px; 
+  border-radius: 6px; 
+}
