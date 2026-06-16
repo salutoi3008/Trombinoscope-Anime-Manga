@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Présentation moderne de l’Arduino : modèles, spécifications, entrées/sorties, usages et ressources.">
+  
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+
+
+
+  <title>Black Goku - Présentation et Histoire</title>
+</head>
+<body>
+  
+  <div class="banniere">
+    <img src="img/bannière.jpg" alt="Bannière">
+  </div>
+  <header class="hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="container hero__content">
+      <p>Apparu pour la première fois le 12 Juin 2016, Black Goku est devenu l'un des personnages les plus appréciés de la communauté.</p>
+      <p>Retournons 10 ans en arrière pour comprendre qui est ce dieux qui a bien faillit triompher de nos héros et appliquer son plan <strong> Zéros Mortel</strong>.</p>
+
+
+      <nav class="hero__cta">
+        <a href="#histoire" class="btn btn--ghost">Histoire</a>
+        <a href="#Transformations" class="btn btn--ghost">Transformations</a>
+        <a href="#techniques" class="btn btn--ghost">Techniques</a>
+        <a href="#apparitions" class="btn btn--ghost">Apparitions</a>
+      </nav>
+    </div>
+
+    <h1>Qui est-il vraiment ?</h1>
+        <p>Black Goku n'est pas un simple Son Goku qui aurait mal tourné : Il s'agit d'en réalité de Zamasu, un kaioshin de l'univers 10 qui dans la timeline principale a volé
+         le corps de Goku grâce aux Super Dragon Ball  pour atteindre son but qui est de posséder un pouvoir suprême afin d'exterminer tous les êtres mortels et inférieur à lui.</p>
+      
+
+
+      <!-- =============  
+           = HISTOIRE  =
+           =============-->
+
+    <section id="histoire">
+      <h2>Histoire</h2>
+
+
+      <!-- Apparrition -->
+      <div class="grid cards">
+        <article class="card">
+          <h3>Premières apparitions</h3>
+          <p> Il est apparu dans le dimanche 12 juin 2016 dans l'adaptation animé et en juin dans le manga.</p>
+        </article>
+      
+
+      <!-- Charadesign -->  
+        <article class="card">
+          <h3>Charadesign</h3>
+          <p> Black Goku est conçu comme l'opposé parfait de Goku : il possède son visage, sa puissance et son corps, mais il remplace son cœur de héros par l'orgueil d'un dieu qui pense avoir raison.</p>
+        </article>
+
+
+
+
+        <article class="card">
+          <div class="card__img"><img src="img/nano.png" alt="Arduino Nano"></div>
+          <h3>Arduino Nano</h3>
+          <p>Format compact, facile à intégrer dans de petits circuits.</p>
+          <ul class="spec-tags">
+            <li>ATmega328</li><li>22 entrées/sorties</li><li>USB Mini-B</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card__img"><img src="img/leonardo.png" alt="Arduino Leonardo"></div>
+          <h3>Arduino Leonardo</h3>
+          <p>Particularité : peut émuler un clavier ou une souris.</p>
+          <ul class="spec-tags">
+            <li>ATmega32u4</li><li>20 entrées/sorties digitales</li><li>USB natif</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="io" class="card">
+      <h2>Schéma simplifié des broches I/O</h2>
+      <p class="muted">Plan logique. Vérifiez toujours la datasheet avant tout branchement réel.</p>
+      <figure class="gpio-figure">
+        <img src="img/arduino-uno-pinout.png" alt="Schéma des broches de l’Arduino Uno" class="gpio-img">
+      </figure>
+    </section>
+
+    <section id="specs">
+      <h2>Spécifications (aperçu)</h2>
+      <div class="table-scroll">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>Modèle</th><th>Microcontrôleur</th><th>Fréquence</th><th>RAM</th><th>Flash</th><th>Entrées/Sorties</th><th>Alim</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Uno</td><td>ATmega328P</td><td>16 MHz</td><td>2 Ko</td><td>32 Ko</td><td>14 DIO / 6 AIO</td><td>USB, Jack 7–12V</td>
+            </tr>
+            <tr>
+              <td>Mega 2560</td><td>ATmega2560</td><td>16 MHz</td><td>8 Ko</td><td>256 Ko</td><td>54 DIO / 16 AIO</td><td>USB, Jack 7–12V</td>
+            </tr>
+            <tr>
+              <td>Nano</td><td>ATmega328</td><td>16 MHz</td><td>2 Ko</td><td>32 Ko</td><td>22 I/O</td><td>USB Mini-B</td>
+            </tr>
+            <tr>
+              <td>Leonardo</td><td>ATmega32u4</td><td>16 MHz</td><td>2.5 Ko</td><td>32 Ko</td><td>20 I/O</td><td>USB</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <h2>Exemples d’usages</h2>
+      <div class="grid gallery">
+        <figure class="card media">
+          <div class="media__ph"><img src="img/domotique.png" alt="Domotique" class="media__overlay"></div>
+          <figcaption>Domotique (contrôle de relais, capteurs de température)</figcaption>
+        </figure>
+        <figure class="card media">
+          <div class="media__ph"><img src="img/robot.png" alt="Robotique" class="media__overlay"></div>
+          <figcaption>Robotique (moteurs, capteurs ultrasons)</figcaption>
+        </figure>
+        <figure class="card media">
+          <div class="media__ph"><img src="img/prototypage.png" alt="Prototypage" class="media__overlay"></div>
+          <figcaption>Prototypage rapide (breadboard + composants)</figcaption>
+        </figure>
+        <figure class="card media">
+          <div class="media__ph"><img src="img/iot.png" alt="IoT" class="media__overlay"></div>
+          <figcaption>IoT (modules Wi-Fi/Bluetooth pour objets connectés)</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <button id="backToTop" aria-label="Revenir en haut" title="Retour en haut">▲</button>
+
+  <footer class="site-footer">
+    <div class="container"><p>Made with ♥</p></div>
+  </footer>
+</body>
+</html>
