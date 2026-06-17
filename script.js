@@ -1,16 +1,12 @@
 /* =========================================================
-   GESTION DU THÈME CLAIR/SOMBRE
-   Ce bloc s'exécute une fois que le HTML est entièrement chargé
-   (DOMContentLoaded = "le document est prêt").
-   ========================================================= */
+            GESTION DU THÈME CLAIR/SOMBRE
+   ========================================================= 
 document.addEventListener("DOMContentLoaded", function () {
     const btn = document.getElementById("themeToggle");
     if (!btn) return; // sécurité : si le bouton n'existe pas dans le HTML, on arrête là
 
 
-    // Lire le thème stocké dans le navigateur (localStorage = mémoire persistante
-    // côté navigateur, qui survit même après avoir fermé la page).
-    // Si rien n'est encore enregistré, on utilise "auto" par défaut.
+
     let theme = localStorage.getItem("theme") || "auto";
     applyTheme(theme);
 
@@ -38,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         btn.textContent = "☀️";
       }
     }
-  });
+  });  */ 
   
 
 
@@ -46,28 +42,26 @@ document.addEventListener("DOMContentLoaded", function () {
   
   
   /* =========================================================
-     LISTE DES ÉLÈVES
-     C'est LE tableau que chaque élève doit compléter avec ses
-     propres informations. Chaque élève = un objet avec :
+     LISTE DES PERSONNAGES
+     C'est LE tableau des personnage avec leurs
+     propres informations :
        - name   : nom affiché sur la fiche
-       - photo  : chemin vers une image (optionnel)
+       - photo  : chemin vers une image 
        - role   : petite accroche/description sous le nom
-       - email  : utilisé pour le bouton "Email" (lien mailto:)
-       - github : utilisé pour le bouton "GitHub"
        - web    : lien vers une page perso (ex: un exercice du cours)
        - tech   : tableau de 3 (ou plus) technos/compétences -> affichées en pastilles
        - bio    : courte description
-       - clic   : (optionnel) lien vers une page "Clicker" supplémentaire
      Tout ce tableau est ensuite transformé en cartes HTML par
      la fonction cardTemplate() plus bas.
      ========================================================= */
+
   const students = [
     
       {
         name: "Black Goku",
         photo: "img/black.jpg",
         role: " Dernier Dieu en vie, il veut accomplir son plan Zéro Humains",
-        web: "https://dragonball.fandom.com/wiki/Goku_Black", 
+        web: "file:///C:/Users/EL/Desktop/Pr%C3%A9sentation%20Black%20Goku/Black%20Goku.html", 
         tech: ["Super sayan rosé", "Super Kaméhaméha black rosé", "Fusion Potalas"],
         bio: "Dieu maléfique, il est né pour exterminer les êtres inférieurs.  "
       },
