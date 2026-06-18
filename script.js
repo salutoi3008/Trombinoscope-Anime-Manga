@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
         name: "Black Goku",
         photo: "img/black.jpg",
         role: " Dernier Dieu en vie, il veut accomplir son plan Zéro Humains",
-        web: "file:///C:/Users/EL/Desktop/Pr%C3%A9sentation%20Black%20Goku/Black%20Goku.html", 
+        web: "https://salutoi3008.github.io/Presentation-Black_Goku/", 
         tech: ["Super sayan rosé", "Super Kaméhaméha black rosé", "Fusion Potalas"],
         bio: "Dieu maléfique, il est né pour exterminer les êtres inférieurs.  "
       },
