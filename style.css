@@ -106,16 +106,6 @@ header.hero {
   font-size: clamp(22px, 3vw, 32px); /* taille fluide entre 22px et 32px selon l'écran */
 }
 
-/* Petit badge "Mini-projet" avant le titre */
-.badge {
-  font-size: 12px; 
-  background: linear-gradient(90deg, var(--brand), var(--accent)); /* dégradé de couleur */
-  color: #081018; 
-  padding: 4px 10px; 
-  border-radius: 999px; /* arrondi maximal = forme de pilule */
-  font-weight: 700; 
-  box-shadow: var(--shadow);
-}
 
 /* Panneau contenant la barre de recherche (effet "verre dépoli") */
 .panel {
@@ -155,12 +145,6 @@ header.hero {
   font-size: 15px;
 }
 
-/* Texte d'astuce "appuie sur / pour chercher" */
-.hint { 
-  color: var(--muted); 
-  font-size: 13px; 
-  text-align: right; 
-}
 
 /* ===== Grille des fiches élèves : colonnes responsives, même hauteur ===== */
 .grid {
