@@ -26,7 +26,7 @@ const students = [
     name: "Itachi Uchiwa",
     photo: "img/Itachi.jpg",
     role: "Génie déchu du clan Uchiwa, sacrifié pour la paix de Konoha",
-    web: "https://naruto.fandom.com/fr/wiki/Itachi_Uchiwa",
+    web: "https://salutoi3008.github.io/Presentation-Itachi/",
     sound: "sons/itachi-uchiwa.mp3",
     tech: ["Tsukuyomi", "Amaterasu", "Izanami"],
     bio: "Ninja de génie, il trahit son clan pour protéger son village et son petit-frère."
