@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       {
         name: "Itachi Uchiwa",
-        photo: "img/itachi.jpg",
+        photo: "img/Itachi.jpg",
         role: "Génie déchu du clan Uchiwa, sacrifié pour la paix de Konoha",
         web: "https://naruto.fandom.com/fr/wiki/Itachi_Uchiwa",
         tech: ["Tsukuyomi", "Amaterasu", "Izanami"],
