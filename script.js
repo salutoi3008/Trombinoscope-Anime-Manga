@@ -42,6 +42,8 @@ const students = [
   }
 ];
 
+
+
 /* =========================================================
    PETITS UTILITAIRES GÉNÉRIQUES
    ========================================================= */
@@ -64,6 +66,8 @@ function colorFrom(name) {
   const hue = h % 360;
   return `linear-gradient(135deg, hsl(${hue} 90% 55%), hsl(${(hue + 60) % 360} 90% 55%))`;
 }
+
+
 
 /* =========================================================
    CONSTRUCTION D'UNE CARTE
@@ -111,6 +115,8 @@ function cardTemplate(p) {
     </article>`;
 }
 
+
+
 /* =========================================================
    AFFICHAGE & RECHERCHE
    ========================================================= */
@@ -143,6 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
   render(students);
 });
 
+
+
 /* =========================================================
    GESTION DES ERREURS D'IMAGES
    ========================================================= */
@@ -157,6 +165,8 @@ document.addEventListener('error', (e) => {
     }
   }
 }, true);
+
+
 
 /* =========================================================
    GESTION DU SON
