@@ -39,7 +39,17 @@ const students = [
     web: "https://attackontitan.fandom.com/wiki/Levi_Ackerman",
     tech: ["Equipement tri-dimensionnelle", "Commandant d'escouade", "Protecteur de l'humanité"],
     bio: "Né des bas-fonds de Paradis, il est devenu le soldat le plus fort du Bataillon d'exploration."
-  }
+  },
+
+  {
+    name: "Rayquaza",
+    photo: "img/rayquaza.jpg",
+    role: "Gardien de la Stratosphère, Pokémon Légendaire",
+    web: "https://www.pokemon.com/fr/pokedex/rayquaza",
+    sound: "sons/rayquaza.mp3",
+    tech: [" Draco Ascension ", "Vitesse Extrême", "DMéga évolution"],
+    bio: " Rayquaza est le protecteur de l'équilibre du monde. Il descend des cieux uniquement lorsqu'une menace majeure apparaît."
+  },
 ];
 
 
