@@ -7,7 +7,7 @@ const students = [
     name: "Black Goku",
     photo: "img/black.jpg",
     role: "Dernier Dieu en vie, il veut accomplir son plan Zéro Humains",
-    web: "https://salutoi3008.github.io/Presentation-Black_Goku/",
+    web: "file:///C:/Users/EL/Desktop/Page%20web/Presentation-Black_Goku/index%20.html",
     sound: "sons/goku-black.mp3",
     tech: ["Super sayan rosé", "Super Kaméhaméha black rosé", "Fusion Potalas"],
     bio: "Dieu maléfique, il est né pour exterminer les êtres inférieurs."
@@ -26,7 +26,7 @@ const students = [
     name: "Itachi Uchiwa",
     photo: "img/Itachi.jpg",
     role: "Génie déchu du clan Uchiwa, sacrifié pour la paix de Konoha",
-    web: "https://salutoi3008.github.io/Presentation-Itachi/",
+    web: " file:///C:/Users/EL/Desktop/Page%20web/Presentation-Itachi/index.html  ",
     sound: "sons/itachi-uchiwa.mp3",
     tech: ["Tsukuyomi", "Amaterasu", "Izanami"],
     bio: "Ninja de génie, il trahit son clan pour protéger son village et son petit-frère."
