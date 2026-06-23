@@ -47,7 +47,7 @@ const students = [
     name: "Rayquaza",
     photo: "img/rayquaza.jpg",
     role: "Gardien de la Stratosphère, Pokémon Légendaire",
-    web: "https://www.pokemon.com/fr/pokedex/rayquaza",
+    web: "https://salutoi3008.github.io/Presentation-Rayquaza/",
     sound: "sons/rayquaza.mp3",
     tech: [" Draco Ascension ", "Vitesse Extrême", "DMéga évolution"],
     bio: " Rayquaza est le protecteur de l'équilibre du monde. Il descend des cieux uniquement lorsqu'une menace majeure apparaît."
