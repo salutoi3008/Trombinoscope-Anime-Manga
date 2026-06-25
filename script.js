@@ -43,6 +43,18 @@ const students = [
     bio: "Né des bas-fonds de Paradis, il est devenu le soldat le plus fort du Bataillon d'exploration."
   },
 
+
+  {
+    name: "Puppet",
+    photo: "img/Puppet.jpg",
+    role: " Âme protectrice et première victime de William Afton",
+    web: "https://salutoi3008.github.io/Presentation-Puppet/",
+    sound:"sons/puppet-music-box.mp3",
+    tech: ["Libération des âmes", " Give Gifts - Give Life", " Boîte à musique"],
+    bio: " De petite fille à âme protectrice, elle guide et venge les âmes perdus tout en étant l'un des animatroniques les plus dangereux et tragique."
+  },
+
+
   {
     name: "Rayquaza",
     photo: "img/rayquaza.jpg",
