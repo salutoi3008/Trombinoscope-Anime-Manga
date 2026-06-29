@@ -17,7 +17,7 @@ const students = [
     name: "Brook",
     photo: "img/brook.jpg",
     role: "Musicien et épéiste hors pair de l'équipage du chapeau de paille",
-    web: "https://onepiece.fandom.com/wiki/Brook",
+    web: "     ",
     sound:"",
     tech: ["Soul Solid", "Style Kabuki", "Le bon rhum de Binks"],
     bio: "Ancien pirates des Rumbar, il a été ramené à la vie grâce au Yomi Yomi no Mi."
@@ -37,7 +37,7 @@ const students = [
     name: "Levi Ackerman",
     photo: "img/Livai.jpg",
     role: "Soldat le plus fort de l'humanité, Commandant de l'Escouade Levi",
-    web: "https://attackontitan.fandom.com/wiki/Levi_Ackerman",
+    web: "      ",
     sound:"",
     tech: ["Equipement tri-dimensionnelle", "Commandant d'escouade", "Protecteur de l'humanité"],
     bio: "Né des bas-fonds de Paradis, il est devenu le soldat le plus fort du Bataillon d'exploration."
